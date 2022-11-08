@@ -10,7 +10,6 @@ const port = 4500;
 app.listen(port, () => console.log("Aplicación corriendo en puerto "+ port));
 
 
-
 let books = [{
     "isbn": "9781593275846",
     "title": "Eloquent JavaScript, Second Edition",

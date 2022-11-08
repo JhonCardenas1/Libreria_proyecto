@@ -5,7 +5,7 @@ const cors = require('cors');
 //import cors from 'cors';
 
 const app = express();
-const port = 4500;
+const port = 4000;
 
 app.listen(port, () => console.log("Aplicación corriendo en puerto "+ port));
 
@@ -58,17 +58,15 @@ app.get('/book', (req, res) =>{
 
 
 app.get('/book/:isbn', (req, res) =>{
-    const isbn = req.params.isbn; //lee el isbn desde la url
+    const isbn = req.params.isbn; //peticion desde la url por isbn
 
-    //buscar en la data por isbn
+    //Busca en la data por isbn
     for(let book of books){
         if(book.isbn == isbn){
-            res.json(books)
+            res.json(book);
             return;
-        }
+        }   
     }
-    res.status(404).send('El libro no se encontro');
-
+    res.status(404).send('El producto no se encontro');
 })
-
 

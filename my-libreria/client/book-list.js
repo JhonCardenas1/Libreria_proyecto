@@ -1,7 +1,7 @@
 
 const setEditModal = (isbn) => {
     const xhttp = new XMLHttpRequest();
-    xhttp.open("GET", `http://localhost:4000/book/${isbn}`, false);
+    xhttp.open("GET", `http://localhost:3002/books/${isbn}`, false);
     xhttp.send();
 
     const book = JSON.parse(xhttp.responseText);
@@ -22,13 +22,13 @@ const setEditModal = (isbn) => {
     document.getElementById('numOfPages').value = numOfPages;
 
     //Ubicar los datos del libro en un formulario/url
-    document.getElementById('editForm').action = `http://localhost:4000/book/${isbn}`;
+    document.getElementById('editForm').action = `http://localhost:3002/books/${isbn}`;
 }
 
 
 const loadBooks = () => {
     const xhttp = new XMLHttpRequest();
-    xhttp.open("GET", `http://localhost:4000/book`, false);
+    xhttp.open("GET", `http://localhost:3002/books`, false);
     xhttp.send();
 
     const books = JSON.parse(xhttp.responseText);
@@ -61,7 +61,7 @@ const loadBooks = () => {
 
 const deleteBook = (isbn) => {
     const xhttp = new XMLHttpRequest();
-    xhttp.open("DELETE", `http://localhost:4000/book/${isbn}`, false);
+    xhttp.open("DELETE", `http://localhost:3002/books/${isbn}`, false);
     xhttp.send();
 
     location.reload();
